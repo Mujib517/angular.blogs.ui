@@ -1,0 +1,10 @@
+<div class="col-md-7">
+  <div *ngFor="let blog of blogs" class="well">
+    <h2>{{blog.title | uppercase}}</h2>
+    <p>{{blog.content | lowercase}}</p>
+    <h1>{{100|currency}}</h1>
+    <hr>
+    <div class="text-muted">{{blog.lastUpdated | date:'dd-MMM-yyyy hh:mm:ss'}}</div>
+    <div class="text-muted pull-right">{{blog.lastUpdated | time}}</div>
+  </div>
+</div>

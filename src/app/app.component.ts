@@ -4,4 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app',
     templateUrl: './app.html'
 })
-export class AppComponent { }
+export class AppComponent {
+    status = "adfadfdaf";
+    clsName = ["green", "color"];
+    style = { border: '1px solid black','font-size':'30pt','font-weight':'bolder' };
+}
