@@ -1,11 +1,13 @@
 import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/map';
 
 
+@Injectable()
 export class BlogService {
 
-    constructor(private http: Http) { }
+    constructor(private http: Http) {}
 
     get() {
         //observable

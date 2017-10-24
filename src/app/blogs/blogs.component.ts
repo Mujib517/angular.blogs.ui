@@ -9,16 +9,20 @@ import { Http } from '@angular/http';
 })
 export class BlogsComponent {
 
-  blogs={};
+  blogs = {};
 
-  constructor(private http: Http) {
-
-    var blogSvc = new BlogService(http);
-    blogSvc.get()
-    .subscribe(
-      (response)=>{
-        this.blogs=response;
-      }
-    )
+  onSave(): void {
+    console.log("Saving...");
   }
+
+  constructor(private blogSvc: BlogService) {
+    blogSvc.get()
+      .subscribe(
+      (response) => {
+        this.blogs = response;
+      }
+      )
+  }
+
+
 }

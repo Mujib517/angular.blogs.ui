@@ -1,9 +1,25 @@
-<div class="col-md-9">
-  <div *ngFor="let blog of blogs.data" class="well">
-    <h2>{{blog.title | uppercase}}</h2>
-    <p>{{blog.content | lowercase}}</p>
-    <hr>
-    <div class="text-muted">{{blog.lastUpdated | date:'dd-MMM-yyyy hh:mm:ss'}}</div>
-    <div class="text-muted pull-right">{{blog.lastUpdated | time}}</div>
+<div class="row">
+
+  <div class="col-md-7">
+    <div class="form-group">
+      <input type="text" placeholder="title" class="form-control" />
+    </div>
+    <div class="form-group">
+      <textarea placeholder="content" class="form-control" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      Published?
+      <input type="checkbox" />
+    </div>
+    <div class="form-group pull-right">
+      <button class="btn btn-danger" (click)="onSave()">
+        Save Blog
+      </button>
+    </div>
+  </div>
+
+
+  <div class="col-md-9">
+    <app-blog *ngFor="let blg of blogs.data" [blog]="blg"></app-blog>
   </div>
 </div>

@@ -6,10 +6,15 @@ import { HomeComponent } from './home/home.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { TimePipe } from '../shared/time.pipe';
 import { HttpModule } from '@angular/http';
+import { BlogService } from '../shared/blog.service';
+import { BlogComponent } from './blog/blog.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     imports: [BrowserModule, FormsModule,HttpModule],
-    declarations: [AppComponent, HomeComponent, BlogsComponent, TimePipe],
-    bootstrap: [AppComponent]
+    declarations: [AppComponent, HomeComponent, BlogsComponent, TimePipe,BlogComponent, HeaderComponent, FooterComponent],
+    bootstrap: [AppComponent],
+    providers:[BlogService]
 })
 export class AppModule { }
