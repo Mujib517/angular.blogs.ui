@@ -21,6 +21,11 @@ export class BlogService {
     save(blog: any): Observable<any> {
         return this.http.post("http://api-express2.azurewebsites.net/blogs", blog)
             .map(res => res.json());
-           // .catch((err) => Observable.throw(err));
+        // .catch((err) => Observable.throw(err));
+    }
+
+    getById(id: string): Observable<any> {
+        return this.http.get("http://api-express2.azurewebsites.net/blogs/" + id)
+            .map(res => res.json());
     }
 }

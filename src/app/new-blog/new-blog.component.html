@@ -1,0 +1,31 @@
+<div class="row">
+  <h2>New Blog</h2>
+  <div class="col-md-7">
+    <form name="frm" novalidate #frm="ngForm">
+      <div *ngIf="isSaveSuccess" class="alert alert-success">Saved Successfully!</div>
+
+      <div class="form-group">
+        <input #title="ngModel" required type="text" placeholder="title" class="form-control" [(ngModel)]="blog.title" name="title"
+          maxlength="15" minlength="4" />
+
+        <span *ngIf="title.touched && title.errors?.required" class="text-danger">Required</span>
+        <span *ngIf="title.touched && title.errors?.minlength" class="text-danger">Min 4 chars</span>
+        <span *ngIf="title.touched && title.errors?.maxlength" class="text-danger">Max 15 chars</span>
+
+      </div>
+      <div class="form-group">
+        <textarea #content="ngModel" required placeholder="content" class="form-control" [(ngModel)]="blog.content" name="content"></textarea>
+        <span *ngIf="content.touched &&content.invalid" class="text-danger">Required</span>
+      </div>
+      <div class="form-group">
+        Published?
+        <input type="checkbox" [(ngModel)]="blog.published" name="published" />
+      </div>
+      <div class="form-group pull-right">
+        <button class="btn btn-danger" (click)="onSave()" [disabled]="frm.invalid">
+          Save Blog
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'app-blog',
     template: ` 
     <div class="well">
-            <h2>{{blog.title | uppercase}}</h2>
+            <h2><a [routerLink]="'/blogs/'+blog._id">{{blog.title | uppercase}}</a></h2>
             <p>{{blog.content | lowercase}}</p>
             <hr>
             <div class="text-muted">{{blog.lastUpdated | date:'dd-MMM-yyyy hh:mm:ss'}}</div>

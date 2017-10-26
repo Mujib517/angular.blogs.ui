@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BlogsComponent } from './blogs/blogs.component';
-import { TimePipe } from '../shared/time.pipe';
 import { HttpModule } from '@angular/http';
-import { BlogService } from '../shared/blog.service';
 import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SharedModule } from '../shared/shared.module';
+import { NewBlogComponent } from './new-blog/new-blog.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { AppRouterModule } from '../shared/app.router.module';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule,HttpModule],
-    declarations: [AppComponent, HomeComponent, BlogsComponent, TimePipe,BlogComponent, HeaderComponent, FooterComponent],
-    bootstrap: [AppComponent],
-    providers:[BlogService]
+    imports: [BrowserModule, FormsModule, HttpModule, SharedModule,AppRouterModule],
+    declarations: [AppComponent, HomeComponent, BlogsComponent,
+        BlogComponent, HeaderComponent, FooterComponent, NewBlogComponent, ContactComponent, AboutComponent, BlogDetailComponent],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+}

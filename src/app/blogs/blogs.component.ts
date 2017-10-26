@@ -10,29 +10,13 @@ import { Http } from '@angular/http';
 export class BlogsComponent {
 
   blogs = {};
-  blog: any = {};
-  isSaveSuccess: boolean;
-
-  onSave(): void {
-
-    this.blogSvc.save(this.blog)
-      .subscribe(
-      () => this.clearAll(),
-      (err) => console.log(err)
-      )
-  }
-
-  private clearAll() {
-    this.isSaveSuccess = true;
-    this.blog = {};
-  }
 
   constructor(private blogSvc: BlogService) {
-    blogSvc.get()
-      .subscribe(
-      (response) => {
-        this.blogs = response;
-      }
-      )
+    this.blogs = blogSvc.get();
+    // .subscribe(
+    // (response) => {
+    //   this.blogs = response;
+    // }
+    // )
   }
 }
