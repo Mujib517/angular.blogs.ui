@@ -3,6 +3,6 @@
 
     <button routerLink="/blogs/new" class="btn btn-success">Add New Blog</button>
 
-    <app-blog *ngFor="let blg of (blogs|async)?.data" [blog]="blg"></app-blog>
+    <app-blog *ngFor="let blg of blogs.data" [blog]="blg"></app-blog>
   </div>
 </div>

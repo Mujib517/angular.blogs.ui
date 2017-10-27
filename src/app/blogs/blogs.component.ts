@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { BlogService } from '../../shared/blog.service';
 import { Http } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
+import { Blog } from '../../shared/models/blog.model';
 
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html'
 })
-export class BlogsComponent {
+export class BlogsComponent implements OnInit{
 
-  blogs = {};
+  blogs:Array<Blog>;
 
-  constructor(private blogSvc: BlogService) {
-    this.blogs = blogSvc.get();
-    // .subscribe(
-    // (response) => {
-    //   this.blogs = response;
-    // }
-    // )
+  constructor(private blogSvc: BlogService, private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(){
+    this.blogs = this.activatedRoute.snapshot.data["blogs"];
   }
 }

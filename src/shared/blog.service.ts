@@ -4,6 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import { Blog } from './models/blog.model';
+import { environment } from '../environments/environment';
+import { BlogData } from './models/blog.data.model';
 
 
 @Injectable()
@@ -11,11 +15,12 @@ export class BlogService {
 
     constructor(private http: Http) { }
 
-    get(): Observable<any[]> {
+    get(): Observable<BlogData> {
+
         return this.http
-            .get("http://api-express2.azurewebsites.net/blogs/0/10")
+            .get(`${environment.url}0/10`)
             .retry(3)
-            .map(response => response.json());
+            .map(response =><BlogData>response.json());
     }
 
     save(blog: any): Observable<any> {
@@ -25,7 +30,8 @@ export class BlogService {
     }
 
     getById(id: string): Observable<any> {
-        return this.http.get("http://api-express2.azurewebsites.net/blogs/" + id)
-            .map(res => res.json());
+        return this.http.get(`${environment.url}${id}`)
+            .map(res => res.json())
+            .catch(err => Observable.throw(err));
     }
 }
