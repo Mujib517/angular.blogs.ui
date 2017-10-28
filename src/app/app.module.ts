@@ -15,11 +15,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { AppRouterModule } from '../shared/app.router.module';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, SharedModule,AppRouterModule],
     declarations: [AppComponent, HomeComponent, BlogsComponent,
-        BlogComponent, HeaderComponent, FooterComponent, NewBlogComponent, ContactComponent, AboutComponent, BlogDetailComponent],
+        BlogComponent, HeaderComponent, FooterComponent, NewBlogComponent, ContactComponent, AboutComponent, BlogDetailComponent, UsersComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {
