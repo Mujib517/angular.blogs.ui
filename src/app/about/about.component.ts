@@ -4,14 +4,13 @@ import { BlogService } from '../../shared/blog.service';
 @Component({
   selector: 'app-about',
   template: `
-  <h1>About Page</h1>
+  <h1 [dlShow]="count" dlBorder>About Page</h1>
+
+  <h1 *dlIf="interval">My Second heading</h1>
 
   <h2>{{count}}</h2>
 
-
   <button class="btn btn-danger" (click)="onClick()">++</button>
-
-
   `
 })
 export class AboutComponent {
