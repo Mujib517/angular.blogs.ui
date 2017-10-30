@@ -1,0 +1,11 @@
+export { AppComponent } from './app.component';
+export { HomeComponent } from './home/home.component';
+export { BlogsComponent } from './blogs/blogs.component';
+export { BlogComponent } from './blog/blog.component';
+export { HeaderComponent } from './header/header.component';
+export { FooterComponent } from './footer/footer.component';
+export { NewBlogComponent } from './new-blog/new-blog.component';
+export { ContactComponent } from './contact/contact.component';
+export { AboutComponent } from './about/about.component';
+export { BlogDetailComponent } from './blog-detail/blog-detail.component';
+export { UsersComponent } from './users/users.component';
