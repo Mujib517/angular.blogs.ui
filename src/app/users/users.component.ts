@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-users',
@@ -29,10 +28,11 @@ export class UsersComponent implements OnInit {
     this.http.get("https://api.github.com/users")
       .map(res => res.json())
       .retry(3)
-      .toPromise()
-      .then(
+      .subscribe(
       (response) => this.users = response,
-      (err) => console.log(err))
+      (err) => console.log(err),
+      () => console.log("COmpleted")
+      )
   }
 
 }

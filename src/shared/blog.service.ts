@@ -20,7 +20,7 @@ export class BlogService {
         return this.http
             .get(`${environment.url}0/10`)
             .retry(3)
-            .map(response =><BlogData>response.json());
+            .map(response => <BlogData>response.json());
     }
 
     save(blog: any): Observable<any> {
@@ -33,5 +33,10 @@ export class BlogService {
         return this.http.get(`${environment.url}${id}`)
             .map(res => res.json())
             .catch(err => Observable.throw(err));
+    }
+
+    delete(id: string): Observable<any> {
+        return this.http.delete(`${environment.url}${id}`)
+            .map(res => res.json());
     }
 }
