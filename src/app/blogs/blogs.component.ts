@@ -20,7 +20,7 @@ export class BlogsComponent implements OnInit {
     this.blogs = this.activatedRoute.snapshot.data["blogs"];
   }
 
-  onNotifiy() {
+  onNotifiy() { 
     this.blogSvc.get()
       .subscribe(
       (response) => this.blogs = response
