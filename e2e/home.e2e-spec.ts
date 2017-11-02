@@ -30,15 +30,15 @@ describe("Home Page", () => {
         expect(btn.isDisplayed()).toBe(true);
     });
 
-    // it("should have save button disabled", () => {
-    //     var btn = element(by.css('.btn.btn-success'));
+    it("should have save button disabled", () => {
+        var btn = element(by.css('.btn.btn-success'));
 
-    //     btn.click();
+        btn.click();
 
-    //     var btnSave = element(by.css('.btn.btn-danger'));
+        var btnSave = element(by.css('.btn.btn-danger'));
 
-    //     expect(btnSave.isEnabled()).toBeFalsy();
-    // });
+        expect(btnSave.isEnabled()).toBeFalsy();
+    });
 
 
     // it("should enable button when validation passes", () => {
@@ -52,38 +52,39 @@ describe("Home Page", () => {
     //     expect(btnSave.isEnabled()).toBeTruthy();
     // });
 
-    // it('should show validation errors', () => {
+    it('should show validation errors', () => {
 
-    //     var txtTitle = element(by.css('input[name="title"]'));
-    //     var txtContent = element(by.css('textarea[name="content"]'));
+        var txtTitle = element(by.css('input[name="title"]'));
+        var txtContent = element(by.css('textarea[name="content"]'));
 
-    //     txtTitle.clear();
-    //     txtContent.clear();
+        txtTitle.clear();
+        txtContent.clear();
 
-    //     txtTitle.sendKeys("My Newest blog from automated tests");
-    //     txtTitle.clear();
+        txtTitle.click();
 
-    //     txtContent.sendKeys("Content goes here");
+        txtContent.sendKeys("Content goes here");
 
-    //     var errMsg = element(by.css('.text-danger'));
-    //     expect(errMsg.isDisplayed()).toBe(true);
-    // });
+        browser.sleep(2000);
 
-    // it("should enable button when validation passes", () => {
-    //     var txtTitle = element(by.css('input[name="title"]'));
-    //     var txtContent = element(by.css('textarea[name="content"]'));
+        var errMsg = element(by.css('.text-danger'));
+        expect(errMsg.isDisplayed()).toBe(true);
+    });
 
-    //     txtTitle.sendKeys("My Newest blog from automated tests");
-    //     txtContent.sendKeys("Blog content goes here");
+    it("should enable button when validation passes", () => {
+        var txtTitle = element(by.css('input[name="title"]'));
+        var txtContent = element(by.css('textarea[name="content"]'));
 
-    //     var btnSave = element(by.css('.btn.btn-danger'));
-    //     btnSave.click();
+        txtTitle.sendKeys("My Newest blog from automated tests");
+        txtContent.sendKeys("Blog content goes here");
 
-    //     expect(browser.getCurrentUrl()).toBe("http://localhost:49152/blogs");
-    // });
+        var btnSave = element(by.css('.btn.btn-danger'));
+        btnSave.click();
+
+        expect(browser.getCurrentUrl()).toBe("http://localhost:49152/blogs");
+    });
 
     it('should take me blog detail page', () => {
-
+        browser.get('/blogs');
         var id = '597800e668f3662f785f55a3';
 
         var divs = element.all(by.css('.well'));
