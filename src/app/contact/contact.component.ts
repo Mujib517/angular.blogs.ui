@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-contact',
   template: `
    <h1>Contact Page</h1>
-
    <app-users></app-users>
   `
 })
