@@ -33,12 +33,22 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   </form>
 
 
+  <div *ngIf="!loading else temp">
+    Content
+  </div>
+
+  <ng-template #temp>Loading...</ng-template>
+
+ <h1> {{name |titlecase}}</h1>
+
   `
 })
 export class ContactComponent {
 
   state = "active";
+  loading = true;
   frm: FormGroup;
+  name= "mujib rahman";
 
   constructor(private fb: FormBuilder) {
     this.frm = fb.group({
