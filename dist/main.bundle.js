@@ -154,6 +154,8 @@ module.exports = "<div class=\"container\">\r\n    <app-header></app-header>\r\n
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__module_barrel__ = __webpack_require__("../../../../../src/app/module.barrel.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_barrel__ = __webpack_require__("../../../../../src/app/app.barrel.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -163,6 +165,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
@@ -170,7 +174,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__module_barrel__["a" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_0__module_barrel__["b" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["c" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["d" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["e" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["f" /* AppRouterModule */]],
+        imports: [__WEBPACK_IMPORTED_MODULE_0__module_barrel__["b" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["c" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["d" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["e" /* SharedModule */], __WEBPACK_IMPORTED_MODULE_0__module_barrel__["f" /* AppRouterModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* ReactiveFormsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */]],
         declarations: [__WEBPACK_IMPORTED_MODULE_1__app_barrel__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["b" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["c" /* BlogsComponent */],
             __WEBPACK_IMPORTED_MODULE_1__app_barrel__["d" /* BlogComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["e" /* HeaderComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["f" /* FooterComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["g" /* NewBlogComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["h" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["i" /* AboutComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["j" /* BlogDetailComponent */], __WEBPACK_IMPORTED_MODULE_1__app_barrel__["k" /* UsersComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_1__app_barrel__["a" /* AppComponent */]]
@@ -357,6 +361,8 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_animations__ = __webpack_require__("../../../animations/@angular/animations.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -364,19 +370,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var ContactComponent = (function () {
-    function ContactComponent() {
+    function ContactComponent(fb) {
+        this.fb = fb;
+        this.state = "active";
+        this.frm = fb.group({
+            name: ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].minLength(5)]],
+            email: ['mujib517@gmail.com']
+        });
     }
+    ContactComponent.prototype.onSave = function () {
+        // if (this.state === 'active') this.state = 'inactive';
+        // else this.state = "active";
+        this.state = this.state === 'active' ? 'inactive' : 'active';
+        //console.log(this.frm.value);
+        //http.
+    };
     return ContactComponent;
 }());
 ContactComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* Component */])({
         selector: 'app-contact',
-        template: "\n   <h1>Contact Page</h1>\n   <app-users></app-users>\n  "
-    })
+        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["a" /* trigger */])('mytrigger', [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["b" /* state */])('active', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["c" /* style */])({ backgroundColor: 'green', transform: 'skew(10deg,10deg)' })),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["b" /* state */])('inactive', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["c" /* style */])({ backgroundColor: 'blue', transform: 'rotate(-180deg)' })),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["d" /* transition */])("active<=>inactive", __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["e" /* animate */])("1000ms ease-in")),
+            ])],
+        template: "\n   <h1>Contact Page</h1>\n  \n   <form [formGroup]=\"frm\">\n   \n   <div class=\"form-group\">\n      <input type=\"text\" class=\"form-control\" formControlName=\"name\" placeholder=\"name\"/>\n      <span class=\"text-danger\" *ngIf=\"frm.controls.name.errors?.required\">Required</span>\n      <span class=\"text-danger\" *ngIf=\"frm.controls.name.errors?.minlength\">Min 5 chars</span>\n    </div>\n  <div class=\"form-group\">\n    <input type=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"email\"/>\n  </div>\n \n  <div class=\"form-group\">\n     <button class=\"btn btn-danger\" (click)=\"onSave()\">Save</button>\n  </div>\n   \n\n  <button [@mytrigger]=\"state\" class=\"btn btn-primary\">My Button</button>\n   \n  </form>\n\n\n  "
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormBuilder */]) === "function" && _a || Object])
 ], ContactComponent);
 
+var _a;
 //# sourceMappingURL=contact.component.js.map
 
 /***/ }),
@@ -492,9 +522,9 @@ HomeComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__angular_core__["c"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["d"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/shared/shared.module.ts");
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_app_router_module__ = __webpack_require__("../../../../../src/shared/app.router.module.ts");
